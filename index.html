@@ -1,39 +1,338 @@
-You are an expert Senior Frontend Engineer and an elite SEO Copywriter specializing in Google AdSense programmatic optimization. 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Freelance Profit Margin & Tax Estimator</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Vercel Web Analytics - Script Tag Implementation -->
+    <script>
+        window.va = window.va || function () { 
+            (window.vaq = window.vaq || []).push(arguments); 
+        };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-gray-800">Freelance Calculator</h1>
+            <div class="flex gap-6">
+                <a href="#" class="text-gray-600 hover:text-gray-900">Home</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900">About Us</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900">Privacy Policy</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900">Contact Us</a>
+            </div>
+            <button id="themeToggle" class="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300">
+                Toggle Theme
+            </button>
+        </div>
+    </nav>
 
-Your objective is to generate the complete, production-ready source code for a single-page web utility application: a "Global Freelance Profit Margin & Tax Estimator". 
+    <main class="container mx-auto px-4 py-8">
+        <!-- Hero Section -->
+        <div class="text-center mb-8">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Global Freelance Profit Margin & Tax Estimator</h2>
+            <p class="text-xl text-gray-600">Calculate your ideal hourly rate based on your income goals and expenses</p>
+        </div>
 
-The entire application must be contained within a single file using clean HTML5, responsive Tailwind CSS (loaded via CDN), and optimized, lightweight vanilla JavaScript. Do not use external dependencies or frameworks like React or Vue.
+        <!-- AdSense Placeholder 1 -->
+        <div class="my-8 p-8 border-2 border-dashed border-gray-300 bg-gray-100 text-center">
+            <!-- GOOGLE ADSENSE AUTO-AD SLOT -->
+        </div>
 
-The page structure must be carefully organized to maximize user retention and pass Google AdSense's strict "Low Value Content" quality guidelines. Integrate the following structural elements into the single-file output:
+        <!-- Calculator Dashboard -->
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6">Calculator Inputs</h3>
+            
+            <!-- Input Fields -->
+            <div class="space-y-6">
+                <!-- Monthly Take-Home Income -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        Desired Monthly Take-Home Income: $<span id="incomeDisplay">5000</span>
+                    </label>
+                    <input type="range" id="incomeSlider" min="1000" max="30000" value="5000" step="100" 
+                           class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                    <input type="number" id="incomeInput" min="1000" max="30000" value="5000" 
+                           class="mt-2 w-full px-4 py-2 border border-gray-300 rounded-lg">
+                </div>
 
-1. COMPLIANCE NAVIGATION BAR:
-- A clean, modern sticky header containing the site title, a toggle for light/dark display themes, and clear navigation text links to: "Home", "About Us", "Privacy Policy", and "Contact Us".
+                <!-- Monthly Expenses -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        Estimated Monthly Software & Business Expenses
+                    </label>
+                    <input type="number" id="expensesInput" value="300" min="0" 
+                           class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+                </div>
 
-2. THE HERO INTERACTIVE COMPONENT (THE CALCULATOR):
-- A visually distinct dashboard card container with a subtle background shadow.
-- User Inputs:
-  * Desired Monthly Take-Home Income (Slider + Text Input box, range $1,000 to $30,000, default $5,000)
-  * Estimated Monthly Software & Business Expenses (Text input box, default $300)
-  * Tax & Local Fees Allocation Rate (Percentage slider + text box, range 0% to 50%, default 15%)
-  * Average Billable Hours Per Week (Slider, range 10 to 60, default 30)
-- Live-Updating Outputs (Make these numbers massive, bold, and distinct):
-  * Required Gross Monthly Revenue (Calculated as: (Take-Home + Expenses) / (1 - (Tax Rate / 100)))
-  * Minimum Hourly Rate to Charge (Calculated as: Gross Monthly Revenue / (Billable Hours * 4.33))
-  * Annualized Gross Income Projection
+                <!-- Tax Rate -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        Tax & Local Fees Allocation Rate: <span id="taxDisplay">15</span>%
+                    </label>
+                    <input type="range" id="taxSlider" min="0" max="50" value="15" step="1" 
+                           class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                    <input type="number" id="taxInput" min="0" max="50" value="15" 
+                           class="mt-2 w-full px-4 py-2 border border-gray-300 rounded-lg">
+                </div>
 
-3. MONETIZATION ARCHITECTURE (ADSENSE PLACEHOLDERS):
-- Strategically place visual placeholder containers with dashed borders and light gray backgrounds labeled: "<!-- GOOGLE ADSENSE AUTO-AD SLOT -->" at three specific junctions:
-  * Directly below the main page title (Above-the-fold banner).
-  * In a sidebar wrapper or nested neatly between the calculator output fields and the content body.
-  * Directly below the final FAQ section.
+                <!-- Billable Hours -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        Average Billable Hours Per Week: <span id="hoursDisplay">30</span>
+                    </label>
+                    <input type="range" id="hoursSlider" min="10" max="60" value="30" step="1" 
+                           class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                </div>
+            </div>
 
-4. SYSTEMIC DEEP-CONTENT BODY (EEAT MONETIZATION SECTIONS):
-- Generate high-quality, comprehensive informational copy below the calculator tool spanning at least 800 words, utilizing clear semantic Markdown layout headers (H2, H3). Include:
-  * H2: How to Accurately Estimate Freelance Overhead & Operational Costs. (Detailing recurring software subscriptions, continuous learning, hardware depreciation, and workspace allocations).
-  * H2: The Exact Mathematical Formula Behind Your Hourly Rate. (Explicitly print out the operational formula used by the JavaScript engine so search crawlers can index the mathematical logic).
-  * H2: Frequently Asked Questions (FAQ). (Generate 4 thorough, highly technical questions and answers tackling freelance tax withholding management, invoicing processing fees, adjusting variables for unpaid vacation weeks, and scaling rates for corporate vs. small-business clients).
+            <!-- Calculator Outputs -->
+            <div class="mt-10 p-6 bg-blue-50 rounded-lg">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6">Your Required Rates</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <p class="text-sm text-gray-600 mb-2">Required Gross Monthly Revenue</p>
+                        <p class="text-4xl font-bold text-blue-600">$<span id="grossRevenue">0</span></p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-sm text-gray-600 mb-2">Minimum Hourly Rate</p>
+                        <p class="text-4xl font-bold text-green-600">$<span id="hourlyRate">0</span></p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-sm text-gray-600 mb-2">Annualized Gross Income</p>
+                        <p class="text-4xl font-bold text-purple-600">$<span id="annualIncome">0</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-5. CODE STANDARDS:
-- Ensure all custom JavaScript variables are clearly commented and completely isolated from the global window scope to avoid crashes.
-- All layout adjustments must be fully responsive and touch-optimized for fluid tracking on mobile and tablet viewports.
-- Output the entire structure in one seamless code snippet block. Do not provide placeholders or leave sections incomplete.
+        <!-- AdSense Placeholder 2 -->
+        <div class="my-8 p-8 border-2 border-dashed border-gray-300 bg-gray-100 text-center">
+            <!-- GOOGLE ADSENSE AUTO-AD SLOT -->
+        </div>
+
+        <!-- Educational Content -->
+        <article class="bg-white rounded-xl shadow-lg p-8 mb-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">How to Accurately Estimate Freelance Overhead & Operational Costs</h2>
+            
+            <p class="text-gray-700 mb-4">
+                Understanding your true operational costs is fundamental to setting sustainable freelance rates. Many freelancers underestimate their expenses, 
+                leading to inadequate pricing and financial stress. A comprehensive overhead calculation must account for both obvious and hidden costs that 
+                accumulate throughout your business operations.
+            </p>
+
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Recurring Software Subscriptions</h3>
+            <p class="text-gray-700 mb-4">
+                Modern freelance work relies heavily on software tools. Consider your monthly subscriptions for project management platforms, design software, 
+                cloud storage, communication tools, accounting software, and specialized industry applications. These costs often range from $50 to $500+ monthly 
+                depending on your field and client requirements.
+            </p>
+
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Continuous Learning and Professional Development</h3>
+            <p class="text-gray-700 mb-4">
+                Staying competitive requires ongoing education. Budget for online courses, certifications, workshops, conferences, and professional books. 
+                Allocating 5-10% of your revenue to professional development ensures you maintain cutting-edge skills and can command premium rates.
+            </p>
+
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Hardware Depreciation</h3>
+            <p class="text-gray-700 mb-4">
+                Your computer, monitors, peripherals, and other equipment depreciate over time. Calculate the replacement cost divided by expected lifespan 
+                to determine your monthly hardware depreciation expense. For example, a $2,000 laptop replaced every 3 years costs approximately $55 per month.
+            </p>
+
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Workspace Allocations</h3>
+            <p class="text-gray-700 mb-4">
+                Whether you work from home or rent dedicated office space, workspace costs must be factored into your rates. Home office workers can deduct 
+                a portion of rent/mortgage, utilities, internet, and maintenance. Co-working spaces or dedicated offices represent direct monthly expenses 
+                that must be covered by your billing rates.
+            </p>
+
+            <h2 class="text-3xl font-bold text-gray-900 mb-6 mt-10">The Exact Mathematical Formula Behind Your Hourly Rate</h2>
+            
+            <p class="text-gray-700 mb-4">
+                The calculator employs a precise mathematical model to ensure your freelance rates cover all expenses, taxes, and desired income. 
+                Understanding this formula allows you to make informed adjustments based on your specific circumstances.
+            </p>
+
+            <div class="bg-gray-100 p-6 rounded-lg mb-4 font-mono text-sm">
+                <p class="mb-2"><strong>Step 1: Calculate Required Gross Monthly Revenue</strong></p>
+                <p class="mb-4">Gross Monthly Revenue = (Take-Home Income + Monthly Expenses) / (1 - (Tax Rate / 100))</p>
+                
+                <p class="mb-2"><strong>Step 2: Calculate Minimum Hourly Rate</strong></p>
+                <p class="mb-4">Hourly Rate = Gross Monthly Revenue / (Billable Hours Per Week × 4.33)</p>
+                
+                <p class="mb-2"><strong>Step 3: Calculate Annualized Gross Income</strong></p>
+                <p>Annual Income = Gross Monthly Revenue × 12</p>
+            </div>
+
+            <p class="text-gray-700 mb-4">
+                The constant 4.33 represents the average number of weeks per month (52 weeks ÷ 12 months). This formula accounts for the reality that 
+                not all hours worked are billable—administrative tasks, business development, and unbilled time reduce your effective hourly earning capacity.
+            </p>
+
+            <h2 class="text-3xl font-bold text-gray-900 mb-6 mt-10">Frequently Asked Questions</h2>
+
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">How should I manage freelance tax withholding?</h3>
+                    <p class="text-gray-700">
+                        As a freelancer, you're responsible for setting aside tax payments quarterly. The recommended approach is to maintain a separate 
+                        savings account and immediately transfer your estimated tax percentage (typically 25-35% depending on income level and location) 
+                        from each payment received. Use accounting software to track quarterly estimated tax payments to avoid penalties. Consider working 
+                        with a CPA to optimize deductions for home office, equipment, software, and professional development expenses. Many freelancers 
+                        use the "percentage of revenue" method, automatically transferring 30% of each invoice payment to a dedicated tax account.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">How do I account for payment processing fees in my rates?</h3>
+                    <p class="text-gray-700">
+                        Payment processing fees (typically 2.9% + $0.30 per transaction for credit cards, or 1-3% for platforms like PayPal or Stripe) 
+                        should be incorporated into your base rate calculation. Add these fees to your monthly expenses rather than marking them up 
+                        per-invoice. For a $5,000 monthly revenue target with 3% processing fees, add $150 to your monthly expenses. Alternatively, 
+                        some freelancers pass processing fees directly to clients by offering discounts for direct bank transfers or checks. Always 
+                        specify payment terms and fee responsibilities in your contracts to avoid disputes.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">How do I adjust my calculations for unpaid vacation weeks?</h3>
+                    <p class="text-gray-700">
+                        Unlike salaried employees, freelancers don't receive paid time off. To account for vacation, sick days, and holidays, reduce 
+                        your billable weeks per year in the calculation. If you plan for 4 weeks of vacation annually, calculate based on 48 working 
+                        weeks (48 ÷ 12 = 4 weeks per month) instead of 52. This means using 4.0 instead of 4.33 in the hourly rate formula, which 
+                        increases your required hourly rate proportionally. For example, at 30 hours/week, this changes your monthly billable hours 
+                        from 130 to 120, requiring an 8% rate increase to maintain the same annual income while taking planned time off.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Should I charge different rates for corporate vs. small-business clients?</h3>
+                    <p class="text-gray-700">
+                        Rate differentiation based on client size is common and justifiable. Corporate clients typically have larger budgets, more 
+                        complex requirements, lengthier approval processes, and additional administrative overhead. Many freelancers charge 20-50% 
+                        more for enterprise clients compared to small businesses or startups. However, consider value-based pricing rather than 
+                        arbitrary client-size multipliers. Corporate projects might justify premium rates due to scope, timeline pressure, risk, 
+                        or specialized expertise required. Document your rate structure clearly and apply it consistently within each tier. Some 
+                        freelancers publish base rates publicly while offering custom quotes for enterprise work, maintaining transparency while 
+                        preserving flexibility for complex engagements.
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <!-- AdSense Placeholder 3 -->
+        <div class="my-8 p-8 border-2 border-dashed border-gray-300 bg-gray-100 text-center">
+            <!-- GOOGLE ADSENSE AUTO-AD SLOT -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2026 Freelance Calculator. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        (function() {
+            'use strict';
+
+            // DOM Elements
+            const incomeSlider = document.getElementById('incomeSlider');
+            const incomeInput = document.getElementById('incomeInput');
+            const incomeDisplay = document.getElementById('incomeDisplay');
+            
+            const expensesInput = document.getElementById('expensesInput');
+            
+            const taxSlider = document.getElementById('taxSlider');
+            const taxInput = document.getElementById('taxInput');
+            const taxDisplay = document.getElementById('taxDisplay');
+            
+            const hoursSlider = document.getElementById('hoursSlider');
+            const hoursDisplay = document.getElementById('hoursDisplay');
+            
+            const grossRevenue = document.getElementById('grossRevenue');
+            const hourlyRate = document.getElementById('hourlyRate');
+            const annualIncome = document.getElementById('annualIncome');
+            
+            const themeToggle = document.getElementById('themeToggle');
+
+            // Sync slider and input for income
+            incomeSlider.addEventListener('input', function() {
+                incomeInput.value = this.value;
+                incomeDisplay.textContent = this.value;
+                calculateRates();
+            });
+
+            incomeInput.addEventListener('input', function() {
+                incomeSlider.value = this.value;
+                incomeDisplay.textContent = this.value;
+                calculateRates();
+            });
+
+            // Sync slider and input for tax rate
+            taxSlider.addEventListener('input', function() {
+                taxInput.value = this.value;
+                taxDisplay.textContent = this.value;
+                calculateRates();
+            });
+
+            taxInput.addEventListener('input', function() {
+                taxSlider.value = this.value;
+                taxDisplay.textContent = this.value;
+                calculateRates();
+            });
+
+            // Update hours display
+            hoursSlider.addEventListener('input', function() {
+                hoursDisplay.textContent = this.value;
+                calculateRates();
+            });
+
+            // Update on expenses change
+            expensesInput.addEventListener('input', calculateRates);
+
+            // Calculate rates function
+            function calculateRates() {
+                const takeHome = parseFloat(incomeInput.value) || 0;
+                const expenses = parseFloat(expensesInput.value) || 0;
+                const taxRate = parseFloat(taxInput.value) || 0;
+                const billableHours = parseFloat(hoursSlider.value) || 1;
+
+                // Formula: Gross Monthly Revenue = (Take-Home + Expenses) / (1 - (Tax Rate / 100))
+                const grossMonthly = (takeHome + expenses) / (1 - (taxRate / 100));
+
+                // Formula: Hourly Rate = Gross Monthly Revenue / (Billable Hours * 4.33)
+                const hourly = grossMonthly / (billableHours * 4.33);
+
+                // Formula: Annual Income = Gross Monthly Revenue * 12
+                const annual = grossMonthly * 12;
+
+                // Update display
+                grossRevenue.textContent = grossMonthly.toFixed(2);
+                hourlyRate.textContent = hourly.toFixed(2);
+                annualIncome.textContent = annual.toFixed(2);
+            }
+
+            // Theme toggle
+            let isDark = false;
+            themeToggle.addEventListener('click', function() {
+                isDark = !isDark;
+                document.body.classList.toggle('bg-gray-900');
+                document.body.classList.toggle('bg-gray-50');
+            });
+
+            // Initial calculation
+            calculateRates();
+        })();
+    </script>
+</body>
+</html>
